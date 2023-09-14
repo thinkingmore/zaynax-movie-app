@@ -14,3 +14,13 @@ body {
   font-weight: 700;
   height: 93px;
 }
+
+.footer {
+  background: #161214;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0px;
+  text-align: left;
+  height: 389px;
+}
