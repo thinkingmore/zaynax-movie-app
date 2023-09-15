@@ -1,50 +1,74 @@
-import Image from 'next/image';
-import React from 'react';
+"use client"
+import { useState } from 'react';
+import Link from 'next/link';
 import SearchBar from './SearchBar/SearchBar';
+import { FaGift,FaBell,FaBars,FaWindowClose } from 'react-icons/fa';
 
-const Header: React.FC = () => {
+const Navbar = () => {
+  // State to track whether the mobile menu is open or closed
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Function to toggle the mobile menu
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Function to close the mobile menu
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <header className="header-bg flex items-center justify-between">
-      <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <div className=" text-2xl font-semibold font-montserrat">
-          <a href="/">Dramatic</a>
+    <nav className="header-bg p-4">
+      <div className="container mx-auto md:flex items-center">
+        <div className="text-white text-2xl cursor-pointer">
+          DRAMATIC
         </div>
-
-        {/* Navigation Links */}
-        <ul className="flex space-x-4 ">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/about">TV SHOWS</a>
-          </li>
-          <li>
-            <a href="/contact">Movies</a>
-          </li>
-          <li>
-            <a href="/contact">New</a>
-          </li>
-        </ul>
-
-        <div className="relative">
+        <div className="md:hidden absolute right-4 top-4">
+          {/* Mobile Menu Button */}
+          {!isMobileMenuOpen ? (
+            <button
+              className="text-white"
+              onClick={toggleMobileMenu}
+            >
+              <FaBars/>
+            </button>
+          ) : (
+            <button
+              className="text-white "
+              onClick={closeMobileMenu}
+            >
+              <FaWindowClose/>
+            </button>
+          )}
+        </div>
+        <div className={`md:flex ms-8 ${isMobileMenuOpen ? 'block' : 'hidden'}`} onClick={closeMobileMenu}>
+          {/* Navbar Links */}
+          <div className="me-auto md:flex items-center space-x-4">
+            <Link href="/">
+              <div className="text-white cursor-pointer">HOME</div>
+            </Link>
+            <Link href="/about">
+              <div className="text-white cursor-pointer">TV SHOWS</div>
+            </Link>
+            <Link href="/contact">
+              <div className="text-white cursor-pointer">MOVIES</div>
+            </Link>
+            <Link href="/contact">
+              <div className="text-white cursor-pointer">NEW</div>
+            </Link>
+          </div>
+          <div className="md:ms-16 md:mt-0 mt-4">
             <SearchBar/>
+          </div>
+          <div className="md:ms-16 hidden space-x-2 md:flex items-center">
+            <FaGift/>
+            <FaBell/>
+          </div>
         </div>
-
-        {/* Profile Image */}
-        <a href="/">
-        <Image
-            src="/profile.png"
-            width={59}
-            height={59}
-            alt="Picture of the author"
-        />
-        </a>
       </div>
-    </header>
+    </nav>
   );
 };
 
-export default Header;
-
-
+export default Navbar;

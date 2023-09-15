@@ -1,5 +1,5 @@
 .searchBar {
-    width: 324px;
+    max-width: 324px;
     height: 37px;
     top: 29px;
     left: 821px;

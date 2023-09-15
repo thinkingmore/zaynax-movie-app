@@ -1,9 +1,10 @@
 import React from 'react';
+import { FaFacebook,FaTwitter,FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <footer className="footer flex-col py-20 items-center text-white">
-        <div className="container mx-auto grid grid-cols-5 px-2">
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-2">
             {/* Column 1 */}
             <div className="col-span-1">
                 <div className="flex items-center">
@@ -56,15 +57,21 @@ const Footer = () => {
             {/* Column 5 */}
             <div className="col-span-1">
                 <h2 className="text-lg font-semibold mb-2">Follow Us</h2>
-                <ul>
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
+                <ul className="flex items-center space-x-2">
+                    <li>
+                        <a className="text-2xl" href="#"><FaFacebook/></a>
+                    </li>
+                    <li>
+                        <a className="text-2xl" href="#"><FaLinkedin/></a>
+                    </li>
+                    <li>
+                        <a className="text-2xl" href="#"><FaTwitter/></a>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div className="container text-center mt-8">
-            <p className="text-sm text-white">© 2022 Dramatic. All Rights Reserved. </p>
+        <div className="container mx-auto mt-8">
+            <p className="text-center text-white">© 2022 Dramatic. All Rights Reserved. </p>
         </div>
     </footer>
 
