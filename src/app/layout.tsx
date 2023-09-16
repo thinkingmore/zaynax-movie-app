@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 
 const montserrat = Montserrat({
   weight: ['400', '600', '700'],
-  style: ['normal', 'italic'],
+  style: ['normal', 'italic',],
   subsets: ['latin'],
   display: 'swap',
 })

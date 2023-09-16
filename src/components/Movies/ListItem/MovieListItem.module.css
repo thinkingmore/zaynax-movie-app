@@ -1,0 +1,19 @@
+.movieListItem {
+    height: 302px;
+    width: 168px;
+    margin: 20px 0px;
+    color: #FFFFFF;
+}
+
+.movieListItem h2 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.rating {
+    font-size: 11px;
+    font-weight: 700;
+    color: #FFC907;
+    margin-left: 5px;
+
+}

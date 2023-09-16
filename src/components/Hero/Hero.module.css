@@ -1,0 +1,31 @@
+.watchButton {
+    padding: 10px 30px;
+    border: none;
+    background-color:  #5436A9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.listButton {
+    padding: 10px 30px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  #5C5C5C;
+    text-transform: uppercase;
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}

@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav className="header-bg p-4">
-      <div className="container mx-auto md:flex items-center">
+      <div className="container mx-auto md:flex items-center justify-between">
         <div className="text-white text-2xl cursor-pointer">
           DRAMATIC
         </div>
