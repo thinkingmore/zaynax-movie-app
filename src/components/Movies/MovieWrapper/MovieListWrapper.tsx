@@ -1,21 +1,9 @@
-"use client"
-import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import MovieListItem from '../ListItem/MovieListItem';
 import Styles from './MovieListWrapper.module.css';
-import { TopRatedMovies } from '@/utils/api/tmdb'
-
-const MovieListWrapper = ({ heading }) => {
-    const [movies, setMovies] = useState([])
 
 
-    useEffect(() => {
-      const fetchData = async () => {
-        const movies = await TopRatedMovies();
-        setMovies(movies.results);
-      };
-  
-      fetchData();
-    },[]);
+const MovieListWrapper = ({ heading,movies }) => {
 
   return (
     <div
@@ -26,7 +14,9 @@ const MovieListWrapper = ({ heading }) => {
       <div className={`flex flex-wrap gap-4`}>
         {
           movies.map((movie) =>
-          <MovieListItem key={movie.id} movie={movie}/>
+          <Link key={movie.id} href={`/movies/${movie.id}`}>
+            <MovieListItem movie={movie}/>
+          </Link>
           )
         }
       </div>

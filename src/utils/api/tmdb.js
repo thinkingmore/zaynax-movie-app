@@ -7,6 +7,8 @@ const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
 });
 
+
+// fetch poppular,upcoming and  top rated movies
 export const UpcomingMovies = async () => {
   try {
     const response = await axiosInstance.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
@@ -37,3 +39,14 @@ export const PopularMovies = async () => {
   }
 };
 
+// fetch movie details
+
+export const getMovieDetails = async (movieId) => {
+  try {
+    const response = await axiosInstance.get(`/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching popular movies:', error);
+    return [];
+  }
+};
