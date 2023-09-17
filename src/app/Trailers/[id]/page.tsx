@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react";
 import VideoPlayer from "@/components/Movies/MoviePlayer/VideoPlayer";
 import { getMovieVideos } from "@/utils/api/tmdb";
 
-export default function MovieTrailers({ params: { id } }) {
+export default function MovieTrailers({ params }) {
     const [movie, setMovie] = useState(null);
 
     useEffect(() => {
         const fetchMovieVideos = async () => {
         try {
-            const data = await getMovieVideos(id);
+            const data = await getMovieVideos(params.id);
             const result = data?.results;
             const video = result?.filter(video => video.type === 'Trailer');
             setMovie(video[0]);
@@ -19,7 +19,7 @@ export default function MovieTrailers({ params: { id } }) {
         };
         
         fetchMovieVideos();
-    }, [id]);
+    }, [params.id]);
 
   return (
     <main className="main-bg flex-col items-center text-white py-4">
