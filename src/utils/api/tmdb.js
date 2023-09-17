@@ -50,3 +50,27 @@ export const getMovieDetails = async (movieId) => {
     return [];
   }
 };
+
+// fetch movie videos
+
+export const getMovieVideos = async (movieId) => {
+  try {
+    const response = await axiosInstance.get(`/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching popular movies:', error);
+    return [];
+  }
+};
+
+// fetch movie cast or credits
+
+export const getMovieCredits = async (movieId) => {
+  try {
+    const response = await axiosInstance.get(`/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching popular movies:', error);
+    return [];
+  }
+};

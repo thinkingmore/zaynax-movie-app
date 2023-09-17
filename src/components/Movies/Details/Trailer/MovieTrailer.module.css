@@ -1,0 +1,11 @@
+.container {
+    width: 307px;
+    height: 170px;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  
+.trailer {
+    height: 100%;
+    width: 100%;
+}  

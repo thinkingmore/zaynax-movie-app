@@ -1,16 +1,26 @@
 import React, { Fragment } from 'react';
-import Styles from './Hero.module.css';
-import { FaPlay, FaPlus } from 'react-icons/fa';
+import styles from './Hero.module.css';
+import { FaImdb, FaPlay, FaPlus } from 'react-icons/fa';
+import { Bungee_Spice } from 'next/font/google'
+import Image from 'next/image';
+
+const inter = Bungee_Spice({
+    weight: ['400'],
+    subsets: ['latin'] 
+  })
 
 const Hero = ({movie}) => {
-
+  
+  
   return (
-      <div className={Styles.hero}>
-        <div className={Styles.heroText}>
-          <h1 className="text-4xl font-bold">{movie?.original_title}</h1>          
-          <p className="text-lg mt-4">{movie?.overview}</p>
+      <div className={styles.hero}>
+        <div className={styles.heroText}>
+          <div className={inter.className}>
+            <h1 className={styles.heroTitle}>{movie?.original_title}</h1>          
+          </div>
+          <p className={styles.heroDesc}>{movie?.overview}</p>
           <div className="text-sm mt-2">
-            <h3 className="mb-2">Genres:</h3>
+            <h3 className={styles.heroGenres}>Genres:</h3>
             {movie?.genres.map((genre,index) =>
               <span key={genre?.id}>
                 <Fragment>
@@ -20,12 +30,20 @@ const Hero = ({movie}) => {
               </span>
             )}
           </div>
-          <p className="text-sm mt-1">IMDb Rating: 8.5</p>
+          <div className="flex items-center my-4">
+            <Image 
+                src="/imdb.png"
+                height={27}
+                width={54}
+                alt='movie item'
+              />
+              <span className={styles.heroRating}>{movie?.vote_average.toFixed(1)}</span>
+          </div>
           <div className="mt-6 flex space-x-2">
-            <div className={Styles.watchButton}>
+            <div className={styles.watchButton}>
                 Watch <FaPlay className="ms-4 text-sm"/>
             </div>
-            <div className={Styles.listButton}>
+            <div className={styles.listButton}>
               My List <FaPlus className="ms-4 text-sm"/>
             </div>
           </div>
