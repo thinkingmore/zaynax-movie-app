@@ -13,7 +13,7 @@ const MovieListWrapper = ({ heading,movies }) => {
       <h2 className={Styles.heading}>{heading}</h2>
       <div className={`flex flex-wrap gap-4`}>
         {
-          movies.map((movie) =>
+          movies?.map((movie) =>
           <Link key={movie.id} href={`/movies/${movie.id}`}>
             <MovieListItem movie={movie}/>
           </Link>

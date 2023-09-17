@@ -11,8 +11,13 @@ const inter = Bungee_Spice({
 
 const Hero = ({movie}) => {
   
-  
   return (
+    <div className="flex-col items-center justify-between p-24"
+      style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`, // Replace with the actual API property for the image URL
+        backgroundSize: 'cover',
+      }}
+    > 
       <div className={styles.hero}>
         <div className={styles.heroText}>
           <div className={inter.className}>
@@ -21,7 +26,7 @@ const Hero = ({movie}) => {
           <p className={styles.heroDesc}>{movie?.overview}</p>
           <div className="text-sm mt-2">
             <h3 className={styles.heroGenres}>Genres:</h3>
-            {movie?.genres.map((genre,index) =>
+            {movie?.genres?.map((genre,index) =>
               <span key={genre?.id}>
                 <Fragment>
                   {genre?.name}
@@ -37,7 +42,7 @@ const Hero = ({movie}) => {
                 width={54}
                 alt='movie item'
               />
-              <span className={styles.heroRating}>{movie?.vote_average.toFixed(1)}</span>
+              <span className={styles.heroRating}>{movie?.vote_average?.toFixed(1)}</span>
           </div>
           <div className="mt-6 flex space-x-2">
             <div className={styles.watchButton}>
@@ -49,6 +54,7 @@ const Hero = ({movie}) => {
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

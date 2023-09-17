@@ -8,6 +8,20 @@ const axiosInstance = axios.create({
 });
 
 
+// fetch random movie
+export const RandomMovies = async () => {
+  try {
+    const response = await axiosInstance.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
+    const movies = response?.data?.results;
+    const index =  Math.floor(Math.random() * movies.length);
+    const randomMovie = movies[index];
+    return randomMovie;
+  } catch (error) {
+    console.error('Error fetching upcoming movies:', error);
+    return [];
+  }
+};
+
 // fetch poppular,upcoming and  top rated movies
 export const UpcomingMovies = async () => {
   try {
@@ -44,6 +58,18 @@ export const PopularMovies = async () => {
 export const getMovieDetails = async (movieId) => {
   try {
     const response = await axiosInstance.get(`/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching popular movies:', error);
+    return [];
+  }
+};
+
+// fetch movie recommendations
+
+export const getSimilarMovie = async (movieId) => {
+  try {
+    const response = await axiosInstance.get(`/movie/${movieId}/similar?api_key=${API_KEY}&language=en-US`);
     return response.data;
   } catch (error) {
     console.error('Error fetching popular movies:', error);
