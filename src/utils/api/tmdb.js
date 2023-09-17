@@ -17,10 +17,22 @@ export const RandomMovies = async () => {
     const randomMovie = movies[index];
     return randomMovie;
   } catch (error) {
-    console.error('Error fetching upcoming movies:', error);
+    console.error('Error fetching movies:', error);
     return [];
   }
 };
+
+// fetch searched movies
+export const searchedMovies = async(searchText) => {
+  try {
+    const response = await axiosInstance.get(`/search/movie?api_key=${API_KEY}&query=${searchText}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+    return [];
+  }
+};
+
 
 // fetch poppular,upcoming and  top rated movies
 export const UpcomingMovies = async () => {

@@ -39,7 +39,6 @@ export default function Home() {
     fetchData();
   }, []);
 
-  console.log(topRatedMovies,"top rated",randomMovie?.id)
   return (
     <main className="main-bg min-h-screen flex-col items-center justify-between pb-6">
       <Hero movie={randomMovie}/>
