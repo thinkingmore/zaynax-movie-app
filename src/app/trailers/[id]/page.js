@@ -3,15 +3,14 @@ import React, { useEffect, useState } from "react";
 import VideoPlayer from "@/components/Movies/MoviePlayer/VideoPlayer";
 import { getMovieVideos } from "@/utils/api/tmdb";
 
-export default function MovieTrailers({ params }) {
-    const [movie, setMovie] = useState(null);
-
+export default function MovieTrailers({params}) {
+    const [movie, setMovie] = useState();
     useEffect(() => {
         const fetchMovieVideos = async () => {
         try {
-            const data = await getMovieVideos(params.id);
+            const data = await getMovieVideos(params?.id);
             const result = data?.results;
-            const video = result?.filter(video => video.type === 'Trailer');
+            const video = result?.filter((video) => video.type === 'Trailer');
             setMovie(video[0]);
         } catch (error) {
             console.error("Error fetching movie videos:", error);
