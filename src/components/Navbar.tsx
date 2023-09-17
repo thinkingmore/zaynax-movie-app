@@ -48,13 +48,13 @@ const Navbar = () => {
             <Link href="/">
               <div className="text-white cursor-pointer">HOME</div>
             </Link>
-            <Link href="/about">
+            <Link href="/">
               <div className="text-white cursor-pointer">TV SHOWS</div>
             </Link>
-            <Link href="/contact">
+            <Link href="/">
               <div className="text-white cursor-pointer">MOVIES</div>
             </Link>
-            <Link href="/contact">
+            <Link href="/">
               <div className="text-white cursor-pointer">NEW</div>
             </Link>
           </div>
