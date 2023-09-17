@@ -3,6 +3,7 @@ import styles from './Hero.module.css';
 import { FaImdb, FaPlay, FaPlus } from 'react-icons/fa';
 import { Bungee_Spice } from 'next/font/google'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const inter = Bungee_Spice({
     weight: ['400'],
@@ -45,9 +46,11 @@ const Hero = ({movie}) => {
               <span className={styles.heroRating}>{movie?.vote_average?.toFixed(1)}</span>
           </div>
           <div className="mt-6 flex space-x-2">
-            <div className={styles.watchButton}>
-                Watch <FaPlay className="ms-4 text-sm"/>
-            </div>
+            <Link href={`/trailers/${movie?.id}`}>
+              <div className={styles.watchButton}>
+                  Watch <FaPlay className="ms-4 text-sm"/>
+              </div>
+            </Link>
             <div className={styles.listButton}>
               My List <FaPlus className="ms-4 text-sm"/>
             </div>
