@@ -1,7 +1,5 @@
 # Next.js 13 Movie App Project
 
-![Project Logo](link_to_project_logo.png)
-
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -46,22 +44,6 @@ The search bar provides a quick and efficient way to find specific movies or dis
 ## Live Demo
 https://sparkling-salamander-cd5b0a.netlify.app/
 
-## How to Contribute
-
-We welcome contributions from the open-source community! If you'd like to contribute to the Next.js 13 Movie Project, please follow these steps:
-
-1. Fork the project repository on GitHub.
-
-2. Clone your forked repository to your local machine.
-
-3. Create a new branch for your feature or bug fix.
-
-4. Make your changes, and ensure that the code follows best practices and maintains code quality.
-
-5. Create a pull request (PR) to the main project repository, outlining the changes you've made and why they are valuable.
-
-6. Our team will review your PR, provide feedback if needed, and merge it into the main project if it meets our quality standards.
-
 ## Getting Started
 
 To get started with the Next.js 13 Movie Project, follow these steps:
@@ -74,9 +56,7 @@ To get started with the Next.js 13 Movie Project, follow these steps:
 
 4. Access the application in your web browser at `http://localhost:3000`.
 
-Feel free to explore, contribute, and make this movie database application even better! We look forward to seeing your contributions and making this project a valuable resource for movie enthusiasts.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
