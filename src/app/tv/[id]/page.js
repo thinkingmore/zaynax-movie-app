@@ -3,17 +3,17 @@ import Hero from '@/components/Hero/Hero';
 import MovieListWrapper from '@/components/Movies/MovieWrapper/MovieListWrapper';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { getMovieDetails, getMovieVideos, getMovieCredits,getSimilarMovie } from '@/utils/api/movies';
-import styles from './movies.module.css';
+import { getSeriesDetails,getSeriesVideos,getSeriesCredits,getSimilarSeries } from '@/utils/api/tvseries'
+import styles from './series.module.css';
 import MovieTrailer from '@/components/Movies/Details/Trailer/MovieTrailer';
 import MovieCast from '@/components/Movies/Details/Cast/MovieCast';
 
 
 export default function Movies({params}) {
-  const [movie, setMovie] = useState(null);
+  const [series, setSeries] = useState(null);
   const [videos, setVideos] = useState(null);
   const [credits, setCredits] = useState(null);
-  const [similarMovies, setSimilarMovies] = useState(null);
+  const [similarSeries, setSimilarSeries] = useState(null);
   const [loading, setLoading] = useState(true);
 
 
@@ -24,9 +24,9 @@ export default function Movies({params}) {
 
   useEffect(() => {
 
-    getMovieDetails(params?.id)
+    getSeriesDetails(params?.id)
       .then((data) => {
-        setMovie(data);
+        setSeries(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -34,7 +34,7 @@ export default function Movies({params}) {
         setLoading(false);
       });
 
-      getMovieVideos(params?.id)
+      getSeriesVideos(params?.id)
       .then((data) => {
         findOfficialTrailer(data?.results)
         setLoading(false);
@@ -44,7 +44,7 @@ export default function Movies({params}) {
         setLoading(false);
       });
 
-      getMovieCredits(params?.id)
+      getSeriesCredits(params?.id)
       .then((data) => {
         setCredits(data?.cast.slice(0,10))
         setLoading(false);
@@ -54,9 +54,9 @@ export default function Movies({params}) {
         setLoading(false);
       });
 
-      getSimilarMovie(params?.id)
+      getSimilarSeries(params?.id)
       .then((data) => {
-        setSimilarMovies(data?.results.slice(0,7))
+        setSimilarSeries(data?.results.slice(0,7))
         setLoading(false);
       })
       .catch((error) => {
@@ -67,7 +67,7 @@ export default function Movies({params}) {
 
   return (
     <main className="main-bg">
-      <Hero movie={movie} />
+      <Hero movie={series} />
       <div className="rounded-lg p-8 w-90% text-white">
          <h3 className={styles.trailerTitle}>Trailer</h3>
          <MovieTrailer videos={videos}/> 
@@ -76,7 +76,7 @@ export default function Movies({params}) {
          <h3 className={styles.trailerTitle}>Cast</h3>
          <MovieCast cast={credits}/> 
       </div>
-      <MovieListWrapper heading="Movies Like This" movies={similarMovies} showType="movies"/>    
+      <MovieListWrapper heading="TV Shows Like This" movies={similarSeries} showType="tv"/>    
     </main>
   );
 }

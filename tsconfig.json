@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/movies/index.js", "src/utils/api/tmdb.js", "src/app/trailers/[id]/page.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/movies/index.js", "src/utils/api/movies.js", "src/app/trailers/[id]/page.js", "src/components/Movies/MoviePlayer/VideoPlayer.js", "src/components/Navbar.js", "src/components/Footer.js", "src/components/Movies/Details/Trailer/MovieTrailer.js", "src/components/Movies/Details/Cast/MovieCast.js", "src/components/modals/Search/SearchModal.js", "src/components/Movies/ListItem/MovieListItem.js", "src/components/SearchBar/SearchBar.js", "src/components/Movies/SearchItem/SearchItem.js", "src/components/Movies/MovieWrapper/MovieListWrapper.js", "src/app/movies/[id]/page.js", "src/components/Hero/Hero.js"],
   "exclude": ["node_modules"]
 }

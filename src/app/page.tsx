@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import MovieListWrapper from '@/components/Movies/MovieWrapper/MovieListWrapper'
-import { TopRatedMovies,PopularMovies,UpcomingMovies, RandomMovies, getMovieDetails } from '@/utils/api/tmdb'
+import { TopRatedMovies,PopularMovies,UpcomingMovies, RandomMovies, getMovieDetails } from '@/utils/api/movies'
 import Hero from '@/components/Hero/Hero';
 
 
@@ -43,13 +43,13 @@ export default function Home() {
     <main className="main-bg min-h-screen flex-col items-center justify-between pb-6">
       <Hero movie={randomMovie}/>
       <div className="mb-4">
-        <MovieListWrapper heading={"Trending"} movies={popularMovies}/>
+        <MovieListWrapper heading={"Trending"} movies={popularMovies} showType={"movies"}/>
       </div>
       <div className="my-4">
-        <MovieListWrapper heading={"Upcoming"} movies={upcomingMovies}/>
+        <MovieListWrapper heading={"Upcoming"} movies={upcomingMovies} showType={"movies"}/>
       </div>
       <div className="my-4">
-        <MovieListWrapper heading={"Recommended"} movies={topRatedMovies}/>
+        <MovieListWrapper heading={"Recommended"} movies={topRatedMovies} showType={"movies"}/>
       </div>
     </main>
   )

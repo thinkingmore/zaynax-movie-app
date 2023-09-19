@@ -22,7 +22,9 @@ const Hero = ({movie}) => {
       <div className={styles.hero}>
         <div className={styles.heroText}>
           <div className={inter.className}>
-            <h1 className={styles.heroTitle}>{movie?.original_title}</h1>          
+            <h1 className={styles.heroTitle}>
+              {movie?.original_title ? movie.original_title : movie?.name ? movie.name : ''}
+            </h1>                 
           </div>
           <p className={styles.heroDesc}>{movie?.overview}</p>
           <div className="text-sm mt-2">

@@ -3,7 +3,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import styles from './SearchBar.module.css';
 import SearchModal from '../modals/Search/SearchModal';
-import { searchedMovies } from '@/utils/api/tmdb';
+import { searchedMovies } from '@/utils/api/movies';
 
 const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');

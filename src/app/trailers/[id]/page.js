@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import VideoPlayer from "@/components/Movies/MoviePlayer/VideoPlayer";
-import { getMovieVideos } from "@/utils/api/tmdb";
+import { getMovieVideos } from "@/utils/api/movies";
 
 export default function MovieTrailers({params}) {
     const [movie, setMovie] = useState();

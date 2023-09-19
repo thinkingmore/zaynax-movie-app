@@ -48,7 +48,7 @@ const Navbar = () => {
             <Link href="/">
               <div className="text-white cursor-pointer">HOME</div>
             </Link>
-            <Link href="/">
+            <Link href="/tv">
               <div className="text-white cursor-pointer">TV SHOWS</div>
             </Link>
             <Link href="/">

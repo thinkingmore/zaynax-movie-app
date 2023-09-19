@@ -3,7 +3,7 @@ import MovieListItem from '../ListItem/MovieListItem';
 import Styles from './MovieListWrapper.module.css';
 
 
-const MovieListWrapper = ({ heading,movies }) => {
+const MovieListWrapper = ({ heading,movies,showType }) => {
 
   return (
     <div
@@ -14,7 +14,7 @@ const MovieListWrapper = ({ heading,movies }) => {
       <div className={`flex flex-wrap gap-4`}>
         {
           movies?.map((movie) =>
-          <Link key={movie.id} href={`/movies/${movie.id}`}>
+          <Link key={movie.id} href={`/${showType}/${movie.id}`}>
             <MovieListItem movie={movie}/>
           </Link>
           )
