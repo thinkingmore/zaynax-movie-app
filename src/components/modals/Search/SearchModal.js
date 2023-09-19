@@ -16,12 +16,15 @@ const SearchModal = ({ isOpen, onClose, movies }) => {
           <FaWindowClose />
         </button>
         <div className='mt-4 mx-auto px-4 h-72 overflow-y-scroll'>
-          {movies.map((movie) => (
-            <Link key={movie.id} href={`/movies/${movie.id}`}>
-                <SearchItem movie={movie} />
-            </Link>
-
-          ))}
+            {movies.length === 0 ? (
+              <p>No results found</p>
+            ) : (
+              movies.map((movie) => (
+                <Link key={movie.id} href={`/movies/${movie.id}`}>
+                  <SearchItem movie={movie} />
+                </Link>
+              ))
+            )}
         </div>
       </div>
     </div>
