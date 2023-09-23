@@ -6,9 +6,31 @@ const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
 });
 
+// fetch movie genres
+export const getMovieGenres = async () => {
+  try {
+    const response = await axiosInstance.get(`genre/movie/list?api_key=${API_KEY}&language=en-US`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching genres:', error);
+    return [];
+  }
+};
+
+// fetch movie genres
+export const getMovieByGenres = async (genres) => {
+  try {
+    const response = await axiosInstance.get(`discover/movie/?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=${genres}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching genres:', error);
+    return [];
+  }
+};
+
 
 // fetch random movie
-export const RandomMovies = async () => {
+export const RandomMovies = async() => {
   try {
     const response = await axiosInstance.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
     const movies = response?.data?.results;
@@ -34,7 +56,7 @@ export const searchedMovies = async(searchText) => {
 
 
 // fetch poppular,upcoming and  top rated movies
-export const UpcomingMovies = async () => {
+export const UpcomingMovies = async() => {
   try {
     const response = await axiosInstance.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
     return response.data;
@@ -54,7 +76,7 @@ export const TopRatedMovies = async () => {
   }
 };
 
-export const PopularMovies = async () => {
+export const PopularMovies = async() => {
   try {
     const response = await axiosInstance.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
     return response.data;

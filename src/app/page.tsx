@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import MovieListWrapper from '@/components/Movies/MovieWrapper/MovieListWrapper'
 import { TopRatedMovies,PopularMovies,UpcomingMovies, RandomMovies, getMovieDetails } from '@/utils/api/movies'
 import Hero from '@/components/Hero/Hero';
-
+import Pagination from '@/components/Pagination/Pagination';
 
 export default function Home() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -23,10 +23,12 @@ export default function Home() {
         // Fetch top-rated movies
         const topRatedData = await TopRatedMovies();
         setTopRatedMovies(topRatedData.results);
+       
 
         // Fetch popular movies
         const popularData = await PopularMovies();
         setPopularMovies(popularData.results);
+        console.log(popularData);
 
         // Fetch upcoming movies
         const upcomingData = await UpcomingMovies();
@@ -38,6 +40,7 @@ export default function Home() {
 
     fetchData();
   }, []);
+
 
   return (
     <main className="main-bg min-h-screen flex-col items-center justify-between pb-6">
