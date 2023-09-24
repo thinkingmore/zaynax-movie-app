@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import MovieListSlider from '@/components/Movies/MovieWrapper/MovieListSlider'
 import { getTopRatedMovies,getTrendingList,getPopularMovies, getRandomMovies, getMovieDetails } from '@/utils/api/movies'
-import { PopularSeries, getPopularSeries } from '@/utils/api/tvseries'
+import { getPopularSeries } from '@/utils/api/tvseries'
 import Hero from '@/components/Hero/Hero';
 import Pagination from '@/components/Pagination/Pagination';
 
