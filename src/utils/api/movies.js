@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE_URL = 'https://api.themoviedb.org/3/'; 
+const API_BASE_URL = 'https://api.themoviedb.org/3'; 
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
@@ -30,7 +30,7 @@ export const getMovieGenres = async () => {
 // fetch movie genres
 export const getMovieByGenres = async (genres,page) => {
   try {
-    const response = await axiosInstance.get(`/discover/movie/?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=${genres}&page=${page}`);
+    const response = await axiosInstance.get(`/discover/movie?api_key=927cc3c6d07e9e2fac1b94fc29da9c79&with_genres=${genres}&page=${page}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching genres:', error);
