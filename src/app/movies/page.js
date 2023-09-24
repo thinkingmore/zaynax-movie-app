@@ -8,7 +8,10 @@ import Pagination from '@/components/Pagination/Pagination';
 
 export default function Home() {
   const [movieGenres, setMovieGenres] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [filter,setFilter] = useState([]);
+  const [totalPages,setTotalPages] = useState(10);
+  const [currentPage,setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,8 +23,7 @@ export default function Home() {
         //  Fetch movies with genres
         const selectedGenres = filter.join();
         const movies = await getMovieByGenres(selectedGenres);
-        console.log(movies);
-        
+        setMovies(movies); 
       } catch (error) {
         console.error('Error fetching movies:', error);
       }
@@ -41,9 +43,12 @@ export default function Home() {
     }
   };
 
+  const onPageChange = (page) => {
+    setCurrentPage(page);
+  }
 
   return (
-    <main className="main-bg min-h-screen text-white flex-col items-center justify-center pb-6 px-6">
+    <main className="main-bg min-h-screen text-white flex-col items-center justify-center pb-6 px-2">
         <div className="flex flex-wrap gap-4 py-6">
           { 
             movieGenres?.map(genre =>
@@ -56,7 +61,12 @@ export default function Home() {
             )
           }
         </div>
-
+        <MovieListWrapper movies={movies?.results}/>  
+        <Pagination 
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
     </main>
   )
 }
