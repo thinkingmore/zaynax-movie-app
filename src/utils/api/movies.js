@@ -6,6 +6,17 @@ const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
 });
 
+// fetch tending movie and tv shows
+export const getTrendingList = async () => {
+  try {
+    const response = await axiosInstance.get(`/trending/all/day?api_key=${API_KEY}&language=en-US`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching genres:', error);
+    return [];
+  }
+};
+
 // fetch movie genres
 export const getMovieGenres = async () => {
   try {
@@ -18,9 +29,9 @@ export const getMovieGenres = async () => {
 };
 
 // fetch movie genres
-export const getMovieByGenres = async (genres) => {
+export const getMovieByGenres = async (genres,page) => {
   try {
-    const response = await axiosInstance.get(`discover/movie/?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=${genres}`);
+    const response = await axiosInstance.get(`discover/movie/?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=${genres}&page=${page}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching genres:', error);
@@ -30,9 +41,9 @@ export const getMovieByGenres = async (genres) => {
 
 
 // fetch random movie
-export const RandomMovies = async() => {
+export const getRandomMovies = async() => {
   try {
-    const response = await axiosInstance.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
+    const response = await axiosInstance.get(`/trending/all/day?api_key=${API_KEY}&language=en-US&page=1`);
     const movies = response?.data?.results;
     const index =  Math.floor(Math.random() * movies.length);
     const randomMovie = movies[index];
@@ -56,7 +67,7 @@ export const searchedMovies = async(searchText) => {
 
 
 // fetch poppular,upcoming and  top rated movies
-export const UpcomingMovies = async() => {
+export const getUpcomingMovies = async() => {
   try {
     const response = await axiosInstance.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
     return response.data;
@@ -66,7 +77,7 @@ export const UpcomingMovies = async() => {
   }
 };
 
-export const TopRatedMovies = async () => {
+export const getTopRatedMovies = async () => {
   try {
     const response = await axiosInstance.get(`/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
     return response.data;
@@ -76,7 +87,7 @@ export const TopRatedMovies = async () => {
   }
 };
 
-export const PopularMovies = async() => {
+export const getPopularMovies = async() => {
   try {
     const response = await axiosInstance.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
     return response.data;

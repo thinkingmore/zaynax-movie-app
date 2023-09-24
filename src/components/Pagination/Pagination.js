@@ -14,7 +14,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     <div className="flex justify-center mt-4">
       <ul className="flex space-x-2">
       <li
-          className='px-4 py-2 rounded-md cursor-pointer bg-gray-200 text-gray-700 hover:bg-blue-400 hover:text-white'
+          className='px-4 py-2 bg-gray-800 rounded-md cursor-pointer bg-black-200 text-white hover:bg-blue-400 hover:text-white'
           onClick={() => onPageChange(currentPage-1)}
         >
             prev
@@ -25,7 +25,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             className={`px-4 py-2 rounded-md cursor-pointer ${
               currentPage === page
                 ? 'bg-blue-500 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-blue-400 hover:text-white'
+                : 'bg-black-200 bg-gray-800 text-white hover:bg-blue-400 hover:text-white'
             }`}
             onClick={() => onPageChange(page)}
           >
@@ -33,7 +33,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           </li>
         ))}
         <li
-          className='px-4 py-2 rounded-md cursor-pointer bg-gray-200 text-gray-700 hover:bg-blue-400 hover:text-white'
+          className='px-4 py-2 rounded-md bg-gray-800 cursor-pointer bg-black-200 text-white hover:bg-blue-400 hover:text-white'
           onClick={() => onPageChange(currentPage !== totalPages ? currentPage + 1 : currentPage)}
         >
           next

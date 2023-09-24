@@ -3,6 +3,7 @@ import MovieListItem from '../ListItem/MovieListItem';
 import Styles from './MovieListWrapper.module.css';
 
 
+
 const MovieListWrapper = ({ heading,movies,showType }) => {
 
   return (
@@ -11,15 +12,15 @@ const MovieListWrapper = ({ heading,movies,showType }) => {
       style={{ boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.1)' }}
     >
       <h2 className={Styles.heading}>{heading}</h2>
-      <div className={`flex flex-wrap gap-4`}>
-        {
-          movies?.map((movie) =>
-          <Link key={movie.id} href={`/${showType}/${movie.id}`}>
-            <MovieListItem movie={movie}/>
-          </Link>
-          )
-        }
-      </div>
+        <div className="flex flex-wrap gap-4">
+          {
+            movies?.map((movie) =>
+            <Link key={movie.id} href={`/${showType? showType: movie?.media_type}/${movie.id}`}>
+              <MovieListItem movie={movie}/>
+            </Link>
+            )
+          }
+        </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ export default function Home() {
   const [movieGenres, setMovieGenres] = useState([]);
   const [movies, setMovies] = useState([]);
   const [filter,setFilter] = useState([]);
-  const [totalPages,setTotalPages] = useState(10);
+  const [totalPages,setTotalPages] = useState(1);
   const [currentPage,setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -22,15 +22,16 @@ export default function Home() {
         
         //  Fetch movies with genres
         const selectedGenres = filter.join();
-        const movies = await getMovieByGenres(selectedGenres);
-        setMovies(movies); 
+        const movies = await getMovieByGenres(selectedGenres,currentPage);
+        setMovies(movies);
+        setTotalPages(movies?.total_pages); 
       } catch (error) {
         console.error('Error fetching movies:', error);
       }
     };
 
     fetchData();
-  }, [filter]);
+  }, [filter,currentPage]);
 
 
 
@@ -61,7 +62,7 @@ export default function Home() {
             )
           }
         </div>
-        <MovieListWrapper movies={movies?.results}/>  
+        <MovieListWrapper movies={movies?.results} showType="movies"/>  
         <Pagination 
           currentPage={currentPage}
           totalPages={totalPages}

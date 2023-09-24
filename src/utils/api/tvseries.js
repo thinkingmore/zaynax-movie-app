@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 
 
 // fetch random movie
-export const RandomTvSeries = async () => {
+export const getRandomTvSeries = async () => {
   try {
     const response = await axiosInstance.get(`/discover/tv?api_key=${API_KEY}&include_adult=true&language=en-US&page=1`);
     const series = response?.data?.results;
@@ -34,7 +34,7 @@ export const searchedSeries = async(searchText) => {
 
 
 // fetch poppular,upcoming and  top rated series
-export const TrendingSeries = async () => {
+export const getTrendingSeries = async () => {
   try {
     const response = await axiosInstance.get(`trending/tv/day?api_key=${API_KEY}&language=en-US`);
     return response.data;
@@ -44,7 +44,7 @@ export const TrendingSeries = async () => {
   }
 };
 
-export const TopRatedSeries = async () => {
+export const getTopRatedSeries = async () => {
   try {
     const response = await axiosInstance.get(`tv/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
     return response.data;
@@ -54,7 +54,7 @@ export const TopRatedSeries = async () => {
   }
 };
 
-export const PopularSeries = async () => {
+export const getPopularSeries = async () => {
   try {
     const response = await axiosInstance.get(`tv/popular?api_key=${API_KEY}&language=en-US&page=1`);
     return response.data;

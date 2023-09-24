@@ -51,7 +51,7 @@ const Navbar = () => {
             <Link href="/tv">
               <div className="text-white cursor-pointer">TV SHOWS</div>
             </Link>
-            <Link href="/">
+            <Link href="/movies">
               <div className="text-white cursor-pointer">MOVIES</div>
             </Link>
             <Link href="/">
