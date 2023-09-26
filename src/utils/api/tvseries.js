@@ -6,6 +6,28 @@ const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
 });
 
+// fetch series genres
+export const getSeriesGenres = async () => {
+  try {
+    const response = await axiosInstance.get(`/genre/tv/list?api_key=${API_KEY}&language=en-US`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching genres:', error);
+    return [];
+  }
+};
+
+// fetch movie genres
+export const getSeriesByGenres = async (genres,page) => {
+  try {
+    const response = await axiosInstance.get(`/discover/tv?api_key=927cc3c6d07e9e2fac1b94fc29da9c79&with_genres=${genres}&page=${page}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching genres:', error);
+    return [];
+  }
+};
+
 
 // fetch random movie
 export const getRandomTvSeries = async () => {

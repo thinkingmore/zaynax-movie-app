@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import styles from './Hero.module.css';
-import { FaImdb, FaPlay, FaPlus } from 'react-icons/fa';
+import { FaPlay, FaPlus } from 'react-icons/fa';
 import { Bungee_Spice } from 'next/font/google'
 import Image from 'next/image';
 import Link from 'next/link';
@@ -54,7 +54,7 @@ const Hero = ({movie}) => {
               </div>
             </Link>
             <div className={styles.listButton}>
-              My List <FaPlus className="ms-4 text-sm"/>
+                My List <FaPlus className="ms-4 text-lg"/>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { getTopRatedMovies,getTrendingList,getPopularMovies, getRandomMovies, ge
 import { getPopularSeries } from '@/utils/api/tvseries'
 import Hero from '@/components/Hero/Hero';
 import Pagination from '@/components/Pagination/Pagination';
+import { createGlobalStyle } from 'styled-components';
 
 export default function Home() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);

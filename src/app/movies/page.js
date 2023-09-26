@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <main className="main-bg min-h-screen text-white flex-col items-center justify-center pb-6 px-2">
-        <div className="flex flex-wrap gap-4 py-6">
+        <div className="flex flex-wrap gap-4 py-6 px-5">
           { 
             movieGenres?.map(genre =>
               <FilterButton 
